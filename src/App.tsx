@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     if (import.meta.env.DEV) {
       axios.get("http://localhost:3000/data").then((res) => {
-        setData(res.data.backendData);
+        setData(res.data);
       });
     } else {
       fetchData()
