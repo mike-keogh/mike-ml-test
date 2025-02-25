@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { Navigation } from "./components/Navigation";
 import { fetchData } from "./data";
+import { Content } from "./Content";
 
 function App() {
   const [data, setData] = useState<any>();
@@ -23,9 +24,10 @@ function App() {
 
   return (
     data && (
-      <div>
-        Mike Keogh Marama labs test
+      <div className='container'>
         <Navigation navigationItems={data} />
+
+        <Content />
       </div>
     )
   );
