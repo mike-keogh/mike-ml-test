@@ -1,15 +1,7 @@
-import { useState } from 'react'
-
-
-import './App.css'
+import "./App.css";
 
 function App() {
-
-  return (
-      <div>
-        new one 
-      </div>
-  )
+  return <div>new one</div>;
 }
 
-export default App
+export default App;
