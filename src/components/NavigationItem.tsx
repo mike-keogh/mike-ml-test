@@ -1,6 +1,6 @@
-import react from "react";
+import { useState } from "react";
 
-import { fetchData } from "../data";
+import { Navigation } from "./Navigation";
 
 type NavigationChildren = Omit<NavigationItemType, "children">;
 
@@ -11,5 +11,23 @@ type NavigationItemType = {
 };
 
 export const NavigationItem = ({ id, children, name }: NavigationItemType) => {
-  return <li>{name}</li>;
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const hasChildren = children && children.length > 0;
+  const handleToggle = () => {
+    setIsOpen((prev) => !prev);
+  };
+
+  return (
+    <li id={`${name}-${id}`}>
+      <div className='navigationItemContainer'>
+        <p>{name}</p>
+        {hasChildren && (
+          <span className='toggle' onClick={() => handleToggle()}>
+            {isOpen ? "-" : "+"}
+          </span>
+        )}
+      </div>
+      {hasChildren && isOpen && <Navigation navigationItems={children} />}
+    </li>
+  );
 };

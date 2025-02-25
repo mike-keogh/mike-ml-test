@@ -10,10 +10,12 @@ function App() {
   }, []);
 
   return (
-    <div>
-      Mike Keogh Marama labs test
-      <Navigation navigationItems={data} />
-    </div>
+    data && (
+      <div>
+        Mike Keogh Marama labs test
+        <Navigation navigationItems={data} />
+      </div>
+    )
   );
 }
 
