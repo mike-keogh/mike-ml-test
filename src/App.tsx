@@ -6,7 +6,12 @@ import { fetchData } from "./data";
 function App() {
   const [data, setData] = useState<any>();
   useEffect(() => {
-    fetchData().then((res) => setData(res));
+    fetchData()
+      .then((res) => setData(res))
+      .catch((error) => {
+        console.error("there was an error fetching data", error);
+        window.location.reload();
+      });
   }, []);
 
   return (

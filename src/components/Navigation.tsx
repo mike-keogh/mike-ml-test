@@ -1,6 +1,7 @@
 import { NavigationItem } from "./NavigationItem";
 
-export const Navigation = ({ navigationItems }) => {
+type NavigationItemsType = { navigationItems: Record<string, any>[] };
+export const Navigation = ({ navigationItems }: NavigationItemsType) => {
   return (
     <ul className='navigationContainer'>
       {navigationItems.map((item: any, index: number) => (
